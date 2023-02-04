@@ -2,7 +2,7 @@ import { Model , DataTypes } from 'sequelize'
 import { IUser } from '../interfaces/user.interfaces';
 import db from '../database/connection';
 
-class UserInstance extends Model<IUser> {}
+export default class UserInstance extends Model<IUser> {}
 
 UserInstance.init(
     {
