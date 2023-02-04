@@ -21,11 +21,18 @@ UserInstance.init(
         },
         identificacion : {
             type : DataTypes.UUIDV4,
-            allowNull : false
+            allowNull : true
+        },
+        password : {
+            type : DataTypes.STRING,
+            allowNull : true
         }
     },
     {
+        updatedAt : false,
+        createdAt : false,
         sequelize : db,
         tableName : 'personas'
+        
     }
 )

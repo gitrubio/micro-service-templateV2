@@ -1,15 +1,14 @@
 import { Router } from "express";
-import UserController from "../controllers/user.controller";
-import UserServices from '../services/user.services';
+import userController from '../controllers/user.controller'
+import { userScheme, validateSchema } from "../hooks/validator.hook";
+
 
 
 const userRouter = Router()
-const userServices = new UserServices()
-const userController = new UserController(userServices)
 
-userRouter.get('/',userController.get)
+userRouter.get('/')
 userRouter.get('/:id',userController.get)
-userRouter.post('/')
+userRouter.post('/',validateSchema(userScheme),userController.create)
 userRouter.put('/:id')
 userRouter.delete('/:id')
 

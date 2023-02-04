@@ -1,6 +1,6 @@
 export interface IData<T> {
   error: boolean;
-  data ?: any 
+  data ?: T 
   message?: string;
 }
 
