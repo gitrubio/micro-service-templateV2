@@ -4,8 +4,10 @@ import morgan from "morgan";
 import db from "./database/connection";
 import userRouter from './routes/user.route';
 export default class App {
+
   private app: Application;
   private port: string | number;
+
   constructor() {
     this.app = express();
     this.port = 3000;
@@ -33,10 +35,12 @@ export default class App {
 
 
   listen() {
-    this.app.listen(this.port);
-    console.log(
-      magenta("[ SERVER ]") +
-        yellow(` [ servidor corriendo en puerto :: ${3000} ]`)
-    );
+    this.app.listen(this.port,()=>{
+      console.log(
+        magenta("[ SERVER ]") +
+          yellow(` [ servidor corriendo en puerto :: ${this.port} ]`)
+      );
+    });
+    
   }
 }
