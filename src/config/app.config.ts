@@ -1,16 +1,18 @@
+import 'dotenv/config'
+
 export const configApp = {
     db : {
-        HOST : '',
-        PORT : '',
-        DATABASE : '',
-        USER : '',
-        PASSWORD : ''
+        HOST :  process.env.HOST || 'localhost',
+        PORT : Number(process.env.PORT_DB) || 3306,
+        DATABASE :  process.env.DATABASE || 'andromeda',
+        USER :  process.env.USER ||'root',
+        PASSWORD :  process.env.PASS || 'admin'
     },
     server : {
-        PORT : '',
+        PORT : process.env.PORT || '3000',
         VERSION : '1.0.0'
     },
     jwt : {
-        secret : 'cositas'
+        secret : process.env.SECRET_KEY || 'DEFAULT_KEY_SECRET_SERVER'
     }
 }

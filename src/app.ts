@@ -4,6 +4,7 @@ import morgan from "morgan";
 import db from "./database/connection";
 import userRouter from './routes/user.route';
 import authRouter from "./routes/auth.router";
+import {configApp} from './config/app.config'
 export default class App {
 
   private app: Application;
@@ -11,7 +12,7 @@ export default class App {
 
   constructor() {
     this.app = express();
-    this.port = 3000;
+    this.port = configApp.server.PORT;
     this.midellwares();
     this.configdb();
     this.routes();
