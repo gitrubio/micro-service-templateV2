@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { IUser } from "../interfaces/user.interfaces";
-import userServices from "../services/user.services";
+import userServices from "../services/user.service";
 import { v4 as uuid } from "uuid";
 
 async function get(req: Request, res: Response) {

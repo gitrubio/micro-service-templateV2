@@ -3,6 +3,7 @@ import { yellow, magenta, blue } from "colors";
 import morgan from "morgan";
 import db from "./database/connection";
 import userRouter from './routes/user.route';
+import authRouter from "./routes/auth.router";
 export default class App {
 
   private app: Application;
@@ -31,6 +32,7 @@ export default class App {
 
   private routes() {
     this.app.use('/api/user',userRouter)
+    this.app.use('/api/auth',authRouter)
   }
 
 

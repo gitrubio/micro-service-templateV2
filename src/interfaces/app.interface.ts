@@ -10,3 +10,8 @@ export interface IService {
    update : <T> (params?: any) => Promise<IData<T>>
    delete : <T> (params?: any) => Promise<IData<T>> */
 }
+
+export interface ILogin {
+   identificacion : string
+   password: string
+}

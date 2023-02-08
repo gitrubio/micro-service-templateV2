@@ -1,6 +1,7 @@
 import { IData } from "../interfaces/app.interface";
 import UserInstance from "../models/user.model";
 import { IUser } from "../interfaces/user.interfaces";
+import bycryp from 'bcrypt';
 
 async function getAll<T>(): Promise<IData<T>> {
   try {
@@ -22,6 +23,7 @@ async function getOne<T>(id: string): Promise<IData<T>> {
 
 async function create<T>(params: IUser): Promise<IData<T>> {
   try {
+    params.password = await bycryp.hash(params.password,5)
     const userCreate = await UserInstance.create(params);
     return { data: userCreate as T, error: false };
   } catch (error: any) {
@@ -31,6 +33,7 @@ async function create<T>(params: IUser): Promise<IData<T>> {
 
 async function uptade<T>(params: IUser): Promise<IData<T>> {
   try {
+    params.password = await bycryp.hash(params.password,5)
     const userUpdate = await UserInstance.update(params, {
       where: { id: params.id },
       returning: true,

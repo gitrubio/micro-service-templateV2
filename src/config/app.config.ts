@@ -9,5 +9,8 @@ export const configApp = {
     server : {
         PORT : '',
         VERSION : '1.0.0'
+    },
+    jwt : {
+        secret : 'cositas'
     }
 }

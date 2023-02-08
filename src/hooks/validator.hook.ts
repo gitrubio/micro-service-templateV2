@@ -9,6 +9,10 @@ export const userScheme = joi.object({
   password       : joi.string().required(),
 });
 
+export const SingScheme = joi.object({
+  identificacion : joi.string().required(),
+  password : joi.string().required()
+})
 export const validateSchema = (schema: joi.ObjectSchema) => {
   return (req: Request, res: Response, Next: NextFunction) => {
     const { error } = schema.validate(req.body);
